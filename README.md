@@ -14,6 +14,7 @@ To approach this problem, we will first clean the data. Then, analyze specific f
 This question is significant because if you're an aspiring chef, you want to ensure your meals appeal to a larger audience and also build a reputation on review websites like Food.com. Knowing how certain dishes perform would greatly impact the recipe choices chefs make. 
 
 Our first dataset, `recipes`, contains 83782 rows and 12 columns:
+
 | Column Name     | Description                                                                                                                                         |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | `'name'`            | Recipe name                                                                                                                                        |
@@ -29,6 +30,7 @@ Our first dataset, `recipes`, contains 83782 rows and 12 columns:
 
 
 Our second dataset, `interactions`, contains 731927 rows and 5 columns:
+
 | Column Name | Description            |
 |-------------|------------------------|
 | `'user_id'`     | User ID                |
@@ -70,6 +72,10 @@ This is how the first 3 row of the merged df `df` looks like.
 
 
 ## Exploratory Data Analysis
+### Univariate Analysis
+
+### Bivariate Analysis
+
 
 # Framing a Prediction Problem
 # Baseline Model
