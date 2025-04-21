@@ -51,6 +51,7 @@ Our second dataset, `interactions`, contains 731927 rows and 5 columns:
 7. Created a new `'month'` column.
 
 As we can see below, we have 51832 values of '0' to turn to `np.nan`. 
+
 |   rating |   count |
 |---------:|--------:|
 |        5 |  523620 |
@@ -61,6 +62,7 @@ As we can see below, we have 51832 values of '0' to turn to `np.nan`.
 |        2 |    9310 |
 
 This is how the first 3 row of the merged df `df` looks like. 
+
 | name                                 |     id |   minutes |   contributor_id | submitted   |   n_steps |   n_ingredients |   user_id |   recipe_id | date                |   rating |   avg_rating |   month |
 |:-------------------------------------|-------:|----------:|-----------------:|:------------|----------:|----------------:|----------:|------------:|:--------------------|---------:|-------------:|--------:|
 | 1 brownies in the world    best ever | 333281 |        40 |           985201 | 2008-10-27  |        10 |               9 |    386585 |      333281 | 2008-11-19 00:00:00 |        4 |            4 |      11 |
