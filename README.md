@@ -76,7 +76,36 @@ This is how the first 3 row of the merged df `df` looks like.
 ## Exploratory Data Analysis
 ### Univariate Analysis
 
+ <iframe
+ src="assets/univariate-ratings.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
+
+<iframe
+ src="assets/univariate-avgratings.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
+ 
+
 ### Bivariate Analysis
+
+<iframe
+ src="assets/bivariate-n_steps-rating.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
+
+ <iframe
+ src="assets/bivariate-minutes-rating.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
 
 
 # Framing a Prediction Problem
