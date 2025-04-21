@@ -48,7 +48,7 @@ Our second dataset, `interactions`, contains 731927 rows and 5 columns:
 4. We add the series, `avg_rating`, back to the merged df, `df`.
 5. Dropping rows that do not have a rating, as they will not be relevant to our calculations.
 6. Dropping `'description'`, `'review'`, `'tags'`, `'ingredients'`, `'nutrition'` and `'steps'` columsn are they are not relevant to our calculations.
-7. Created a new `'month'` column.
+7. Created a new `'month'` column to use in further analysis.
 
 As we can see below, we have 51832 values of '0' to turn to `np.nan`. 
 
