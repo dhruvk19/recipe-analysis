@@ -110,9 +110,26 @@ We see that the majority of ratings are above 4.5. Although one indication may b
  frameborder="0"
  ></iframe>
 
+## Interesting Aggregates
+
+## Imputation (Optional? delete if so)
 
 # Framing a Prediction Problem
-Using linear regression, our model will aim to predict a recipe's rating. 
+Using linear regression, our model will aim to predict a recipe's rating. We are treating the rating as a number between the range of [1, 5]. This number can be in the form of a float, which makes this a **regression** problem. 
+
+- make sure to state whether you are performing binary classification or multiclass classification.
+- Report the response variable (i.e. the variable you are predicting) and why you chose it, the metric you are using to evaluate your model and why you chose it over other suitable metrics (e.g. accuracy vs. F1-score).
+- To be able to predict the rating, the factors that will be taken into conisderation will be everything but the rating of the dish. Since the purpose of this objective is to learn what leads to a higher rating. (something like this)
 
 # Baseline Model
+Our inital phase will include implementing a baseline model. We will do this by using a Linear Regression model on the following features: 
+1.  (quantitative)
+2.   (ordinal)
+3.   (nominal)
+4. 
+
+We have chosen these features, because (look at graphs)
+
+- Both now and in Step 5: Final Model, make sure to evaluate your model’s ability to generalize to unseen data!
+## Performance of Model
 # Final Model
