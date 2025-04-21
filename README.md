@@ -83,13 +83,16 @@ This is how the first 3 row of the merged df `df` looks like.
  frameborder="0"
  ></iframe>
 
+Exploring the distribution of the average ratings:
+
 <iframe
  src="assets/univariate-avgratings.html"
  width="800"
  height="600"
  frameborder="0"
  ></iframe>
- 
+
+We see that the majority of ratings are above 4.5. Although one indication may be that all the recipes on the website are that good, it's unlikely. This questions the scale, bias and judgment of those who reviewed these recipes, as most ratings are very high. However, following our objective, this does not affect our calculation as we are interested in how an aspiring chef can achieve high ratings on their dishes, regardless of the scale. 
 
 ### Bivariate Analysis
 
@@ -109,5 +112,7 @@ This is how the first 3 row of the merged df `df` looks like.
 
 
 # Framing a Prediction Problem
+Using linear regression, our model will aim to predict a recipe's rating. 
+
 # Baseline Model
 # Final Model
