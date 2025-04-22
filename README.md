@@ -117,16 +117,25 @@ We see that the majority of ratings are above 4.5. Although one indication may b
 # Framing a Prediction Problem
 Using linear regression, our model will aim to predict a recipe's rating. We are treating the rating as a number between the range of [1, 5]. This number can be in the form of a float, which makes this a **regression** problem. 
 
-- make sure to state whether you are performing binary classification or multiclass classification.
-- Report the response variable (i.e. the variable you are predicting) and why you chose it, the metric you are using to evaluate your model and why you chose it over other suitable metrics (e.g. accuracy vs. F1-score).
-- To be able to predict the rating, the factors that will be taken into conisderation will be everything but the rating of the dish. Since the purpose of this objective is to learn what leads to a higher rating. (something like this)
+- Make sure to state whether you are performing binary classification or multiclass classification.
+- Report the response variable (i.e., the variable you are predicting) and why you chose it, the metric you are using to evaluate your model, and why you chose it over other suitable metrics (e.g., accuracy vs. F1-score).
+To predict the rating, the factors that will be taken into consideration will be everything except the rating of the dish. Since the purpose of this objective is to learn what leads to a higher rating. (something like this)
 
 # Baseline Model
-Our inital phase will include implementing a baseline model. We will do this by using a Linear Regression model on the following features: 
-1.  (quantitative)
-2.   (ordinal)
-3.   (nominal)
-4. 
+Our initial phase will include implementing a baseline model. We will do this by using a **Linear Regression** model on the following features: 
+1. model0 - `'minutes'` (quantitative)
+2. model1 - `'n_steps'` (quantitative)
+3. model2 - `'minutes + n_ingredients'` (quantitative + quantitative)
+
+### Comparing models:
+`model2` will represent our Baseline model, using features minutes and n_ingredients. 
+Below are the results (MSE) of the 3 models. 
+```
+{'minutes': 0.4977188447490406,
+ 'n_steps': 0.5055249094062664,
+ 'minutes + n_ingredients': 0.4937348049211309}
+```
+Therefore, our baseline model scored a MSE of approximately 0.49373, which is acceptable. Since the range of the `'rating'` is [1-5], $$\sqrt{0.49373} ≈ 0.70$$. This means a true rating of 4.0 can lie in the range of [3.3, 4.7]. However, even though we are below 1, there is still room for improvement. 
 
 We have chosen these features, because (look at graphs)
 
