@@ -135,10 +135,11 @@ Below are the results (MSE) of the 3 models.
  'n_steps': 0.5055249094062664,
  'minutes + n_ingredients': 0.4937348049211309}
 ```
-Therefore, our baseline model scored a MSE of approximately 0.49373, which is acceptable. Since the range of the `'rating'` is [1-5], $$\sqrt{0.49373} ≈ 0.70$$. This means a true rating of 4.0 can lie in the range of [3.3, 4.7]. However, even though we are below 1, there is still room for improvement. 
+Therefore, our baseline model scored a MSE of approximately 0.49373, which is acceptable. Since the range of the `'rating'` is [1-5], \(\sqrt{0.49373} \approx 0.70\). This means a true rating of 4.0 can lie in the range of [3.3, 4.7]. However, even though we are below 1, there is still room for improvement. 
 
 We have chosen these features, because (look at graphs)
 
 - Both now and in Step 5: Final Model, make sure to evaluate your model’s ability to generalize to unseen data!
+
 ## Performance of Model
 # Final Model
