@@ -134,6 +134,7 @@ This graph shows us that the time spent cooking doesn't have a strong impact on 
 | G5            | 4.64345 |   4.63962 |    4.65403 | 4.66742 |   4.6533  |
 | Overall       | 4.70066 |   4.66493 |    4.6717  | 4.68205 |   4.67987 |
 
+There seems to be a negative correlation between the number of minutes it takes to prepare the recipe and the average rating. In other words, users tend to prefer quicker recipes. Furthermore, there seems to be a preference for polarized numbers of ingredients. In other words, recipes with a relatively large or relatively small number of ingredients tend to be rated slightly higher than those with a moderate number of ingredients. However, in aggregating these features, there does also seem to be a slight preference against recipes that involve very few ingredients yet take many minutes to prepare, which partially counteracts the overall preference for a polarized number of ingredients.
 
 ## Imputation
 Data imputation was not applicable for our project. For rows where there was a missing (i.e., NaN) value in the rating column, we could not impute a value for the rating because the goal of our project is to build a model that predicts rating values. Thus, any imputation in this column would improperly bias our final regression model. This means we have to drop rows with NaN rating. Once we do this, the only remaining NaNs in our dataframe are in the description and review columns. We do not use either of these features in our regression model, so there is no need for imputation here either.
@@ -152,14 +153,15 @@ Since this is a regression problem. Our initial phase will include implementing 
 3. model2 - `'minutes' + 'n_ingredients' + 'calories'` (all quantitative)
 
 ### Comparing models:
-`model2` will represent our Baseline model, using features minutes and n_ingredients. 
+We will be using MSE, as it is able to penalize large errors more heavily. This was our choice since we predicted a 1-star on a 4-star recipe should be much worse than a 3-star on a 4-star recipe. 
+`model2` will represent our Baseline model, using features minutes, n_ingredients and calories. 
 Below are the results (MSE) of the three models. 
 ```
 {'minutes': 0.5012293752319682,
  'n_steps': 0.5012364897342074,
  'minutes + n_ingredients'+ calories': 0.5012586066763299}
 ```
-Therefore, our baseline model scored a MSE of approximately `0.5013`, which is acceptable. Since the range of the `'rating'` is [1-5], \(\sqrt{0.5084} \approx 0.71\). This means a true rating of 4.0 can lie in the range of [3.29, 4.71]. However, even though MSE is below 1, there is still room for improvement. 
+Therefore, our baseline model scored a MSE of approximately `0.5013`, which is acceptable. However, even though MSE is below 1, there is still room for improvement. 
 
 We have chosen these features, because (look at graphs)
 
@@ -175,10 +177,12 @@ The `'tags_count'` is vital to the rating as the rating is a collection of revie
 
 The `'cal_per_ingredient'` feature represents the calories per ingredient in the recipe. This could show how efficiently the recipe uses calories in its dish, trying to minimize the number of ingredients used. This also plays a role in the complexity of the dish, since more ingredients used may steer away users who prefer a simple dish, whilst maintaining their calorie intake. 
 
+For this model, we iteratively tested N_estimaters from 50, 100, 150, and eventually narrowed it down as the model returned its most optimal one to 235. We continued this same approach for max_depth and min_samples_split, to which the data is listed below. 
+
 ## Results
-After runnning and fine-tuning our hyperparameters, we were able to get our optimial results with the parameters below. 
+After running and fine-tuning our hyperparameters, we were able to get our optimal results with the parameters below. 
 ```{'model__max_depth': 18, 'model__min_samples_split': 22, 'model__n_estimators': 235}```. 
-The calculated MSE for our final model was `0.492`, showing a slight increase from our baseline model. 
+The calculated MSE for our final model was `0.492`, showing a slight improvement from our baseline model. 
 
 # Overall Conclusion 
-Through this analysis, we found out that 
+Through this analysis, we discovered how the time taken, number of ingredients, and calories specifically played a major role in depicting the rating. Through our grid search and EDA, we would predict cal_per_ingredient and minutes to dominate. For future analysis, we think it would be beneficial to categorize the recipe types to perform `rating ` analysis. 
