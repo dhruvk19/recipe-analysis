@@ -125,7 +125,7 @@ This graph shows us that the time spent cooking doesn't have a strong impact on 
  
 ## Interesting Aggregates
 
-| minutes_bin   |     Low |   Low-Mid |   Mid‑High |    High |   Overall |
+| minutes_bin / ing_quartile  |     Low |   Low-Mid |   Mid‑High |    High |   Overall |
 |:--------------|--------:|----------:|-----------:|--------:|----------:|
 | G1            | 4.73278 |   4.68674 |    4.73016 | 4.73671 |   4.71879 |
 | G2            | 4.6832  |   4.67803 |    4.67388 | 4.69367 |   4.68147 |
