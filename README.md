@@ -122,6 +122,9 @@ This graph shows us that the time spent cooking doesn't have a strong impact on 
  height="600"
  frameborder="0"
  ></iframe>
+
+This graph shows us the average rating vs calories. Most fall under 2,000 calories. However, there is a sparse tail that exceeds 10,000 calories, and they are still within the [4, 5] range. Having calories alone is a weak indicator with no simple trend, which is why we later engineer cal_per_ingredient. 
+
  
 ## Interesting Aggregates
 
@@ -163,13 +166,12 @@ Below are the results (MSE) of the three models.
 ```
 Therefore, our baseline model scored a MSE of approximately `0.5013`, which is acceptable. However, even though MSE is below 1, there is still room for improvement. 
 
-We have chosen these features, because (look at graphs)
+We have chosen these features because we found them to have a correlation to the `avg_rating`, stronger than others (like month, which can be found in the ipynb).
 
 - Both now and in Step 5: Final Model, make sure to evaluate your model’s ability to generalize to unseen data!
 
-## Performance of Model
 # Final Model
-For the final model, we plan to improve the accuracy of the baseline model's prediction. The baseline model scored an MSE of 0.5013. For our final model, we plan to engineer 2 features:
+For the final model, we plan to improve the accuracy of the baseline model's prediction. The baseline model scored an MSE of 0.492. For our final model, we plan to engineer 2 features:
 1. `'tags_count'`
 2. `'cal_per_ingredient'`
 
@@ -177,7 +179,7 @@ The `'tags_count'` is vital to the rating as the rating is a collection of revie
 
 The `'cal_per_ingredient'` feature represents the calories per ingredient in the recipe. This could show how efficiently the recipe uses calories in its dish, trying to minimize the number of ingredients used. This also plays a role in the complexity of the dish, since more ingredients used may steer away users who prefer a simple dish, whilst maintaining their calorie intake. 
 
-For this model, we iteratively tested N_estimaters from 50, 100, 150, and eventually narrowed it down as the model returned its most optimal one to 235. We continued this same approach for max_depth and min_samples_split, to which the data is listed below. 
+For this model, we iteratively tested N_estimaters from 50, 100, 150, and eventually narrowed it down as the model returned its most optimal one to 235. We continued this same approach for max_depth and min_samples_split, to which the data is listed below. We used a Random Forest Regressor as it can handle mixed feature types, and outliers (as we see in minutes) dont have as strong of an influence compared to linear models. 
 
 ## Results
 After running and fine-tuning our hyperparameters, we were able to get our optimal results with the parameters below. 
