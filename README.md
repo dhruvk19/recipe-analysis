@@ -72,6 +72,8 @@ This is how the first 5 row of the merged df `df` looks like.
 
 
 ## Exploratory Data Analysis
+
+For our exploratory analysis, we plan to discover patterns in our data that will help guide the factors we select to investigate further. The figures will consist of univariate and bivariate analysis. 
 ### Univariate Analysis
 
  <iframe
@@ -81,7 +83,7 @@ This is how the first 5 row of the merged df `df` looks like.
  frameborder="0"
  ></iframe>
 
-Exploring the distribution of the average ratings:
+From the above figure, we can see that most of the recipes were rated very highly. Majority recieved 5/5 as a rating. To further analyze this distribution, we looked at the same axis but replaced `'rating'` with the `'avg_rating'`. 
 
 <iframe
  src="assets/univariate-avgratings.html"
@@ -90,7 +92,7 @@ Exploring the distribution of the average ratings:
  frameborder="0"
  ></iframe>
 
-We see that the majority of ratings are above 4.5. Although one indication may be that all the recipes on the website are that good, it's unlikely. This questions the scale, bias and judgment of those who reviewed these recipes, as most ratings are very high. However, following our objective, this does not affect our calculation as we are interested in how an aspiring chef can achieve high ratings on their dishes, regardless of the scale. 
+We see that the majority of ratings are above 4.5. Although one indication may be that all the recipes on the website are that good, it's unlikely. This questions the scale, bias, and judgment of those who reviewed these recipes, as most ratings are very high. However, following our objective, this does not affect our calculation as we are interested in how an aspiring chef can achieve high ratings on their dishes, regardless of the scale. 
 
 ### Bivariate Analysis
 
@@ -101,6 +103,8 @@ We see that the majority of ratings are above 4.5. Although one indication may b
  frameborder="0"
  ></iframe>
 
+As seen in the above graph, the majority of the recipes with fewer steps result in a higher score. This may come from the fact that they are straightforward/easy to follow. However, we also see that recipes with a lot of steps can also result in high scores, showing us that complexity alone is not a sufficient factor. 
+
  <iframe
  src="assets/bivariate-minutes-rating.html"
  width="800"
@@ -108,7 +112,10 @@ We see that the majority of ratings are above 4.5. Although one indication may b
  frameborder="0"
  ></iframe>
 
+This graph shows us that the time spent cooking doesn't have a strong impact on its rating. Some dishes that take a very long time (> 5000 minutes) can also result in a high rating, which may come from showing more prep in the recipe, causing the taste/presentation of the food to increase. 
+
 ## Interesting Aggregates
+
 
 ## Imputation (Optional? delete if so)
 
@@ -127,13 +134,13 @@ Our initial phase will include implementing a baseline model. We will do this by
 
 ### Comparing models:
 `model2` will represent our Baseline model, using features minutes and n_ingredients. 
-Below are the results (MSE) of the 3 models. 
+Below are the results (MSE) of the three models. 
 ```
-{'minutes': 0.4977188447490406,
- 'n_steps': 0.5055249094062664,
- 'minutes + n_ingredients': 0.4937348049211309}
+{'minutes': 0.5084417775074348,
+ 'n_steps': 0.5084397192262325,
+ 'minutes + n_ingredients'+ calories': 0.5083787265155612}
 ```
-Therefore, our baseline model scored a MSE of approximately 0.49373, which is acceptable. Since the range of the `'rating'` is [1-5], \(\sqrt{0.49373} \approx 0.70\). This means a true rating of 4.0 can lie in the range of [3.3, 4.7]. However, even though we are below 1, there is still room for improvement. 
+Therefore, our baseline model scored a MSE of approximately `0.5084`, which is acceptable. Since the range of the `'rating'` is [1-5], \(\sqrt{0.5084} \approx 0.71\). This means a true rating of 4.0 can lie in the range of [3.29, 4.71]. However, even though MSE is below 1, there is still room for improvement. 
 
 We have chosen these features, because (look at graphs)
 
@@ -150,7 +157,7 @@ The `'tags_count'` is vital to the rating as the rating is a collection of revie
 The `'cal_per_ingredient'` feature represents the calories per ingredient in the recipe. This could show how efficiently the recipe uses calories in its dish, trying to minimize the number of ingredients used. This also plays a role in the complexity of the dish, since more ingredients used may steer away users who prefer a simple dish whilst maintaining their calorie intake. 
 
 ## Results
-The calculated MSE for our final model was `0.5046`, showing a slight increase from our baseline model. 
+The calculated MSE for our final model was `0.5021`, showing a slight increase from our baseline model. 
 
 # Overall Conclusion 
 Through this analysis, we found out that 
