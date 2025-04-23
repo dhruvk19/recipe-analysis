@@ -125,6 +125,15 @@ This graph shows us that the time spent cooking doesn't have a strong impact on 
  
 ## Interesting Aggregates
 
+| minutes_bin   |     Low |   Low-Mid |   Mid‑High |    High |   Overall |
+|:--------------|--------:|----------:|-----------:|--------:|----------:|
+| G1            | 4.73278 |   4.68674 |    4.73016 | 4.73671 |   4.71879 |
+| G2            | 4.6832  |   4.67803 |    4.67388 | 4.69367 |   4.68147 |
+| G3            | 4.68461 |   4.65426 |    4.64754 | 4.6874  |   4.66836 |
+| G4            | 4.68361 |   4.65087 |    4.68433 | 4.67463 |   4.67072 |
+| G5            | 4.64345 |   4.63962 |    4.65403 | 4.66742 |   4.6533  |
+| Overall       | 4.70066 |   4.66493 |    4.6717  | 4.68205 |   4.67987 |
+
 
 ## Imputation
 Data imputation was not applicable for our project. For rows where there was a missing (i.e., NaN) value in the rating column, we could not impute a value for the rating because the goal of our project is to build a model that predicts rating values. Thus, any imputation in this column would improperly bias our final regression model. This means we have to drop rows with NaN rating. Once we do this, the only remaining NaNs in our dataframe are in the description and review columns. We do not use either of these features in our regression model, so there is no need for imputation here either.
@@ -167,6 +176,8 @@ The `'tags_count'` is vital to the rating as the rating is a collection of revie
 The `'cal_per_ingredient'` feature represents the calories per ingredient in the recipe. This could show how efficiently the recipe uses calories in its dish, trying to minimize the number of ingredients used. This also plays a role in the complexity of the dish, since more ingredients used may steer away users who prefer a simple dish, whilst maintaining their calorie intake. 
 
 ## Results
+After runnning and fine-tuning our hyperparameters, we were able to get our optimial results with the parameters below. 
+```{'model__max_depth': 18, 'model__min_samples_split': 22, 'model__n_estimators': 235}```. 
 The calculated MSE for our final model was `0.492`, showing a slight increase from our baseline model. 
 
 # Overall Conclusion 
