@@ -108,7 +108,7 @@ We see that the majority of ratings are above 4.5. Although one indication may b
 As seen in the above graph, the majority of the recipes with fewer steps result in a higher score. This may come from the fact that they are straightforward/easy to follow. However, we also see that recipes with a lot of steps can also result in high scores, showing us that complexity alone is not a sufficient factor. 
 
  <iframe
- src="assets/bivariate-minutes-rating.html"
+ src="assets/avgr-time.html"
  width="800"
  height="600"
  frameborder="0"
@@ -116,6 +116,13 @@ As seen in the above graph, the majority of the recipes with fewer steps result 
 
 This graph shows us that the time spent cooking doesn't have a strong impact on the rating. Some dishes that take a very long time (> 5000 minutes) can also result in a high rating, which may come from showing more prep in the recipe, causing the taste/presentation of the food to increase. 
 
+<iframe
+ src="assets/avgr-cal.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
+ 
 ## Interesting Aggregates
 
 
