@@ -1,10 +1,6 @@
 # What will my recipe be rated on food.com?
 analysis on recipes/reviews on food.com
 
-## Checkpoint
-1. We will be analyzing the **Recipes and Ratings** dataset as we feel this will apply to a larger audience. 
-2. Plotly (see below)
-3. We will be trying to predict the `rating` column. This will be a regression problem as the ratings are numerical, ranging from 0 to 5. 
 
 # Introduction
 The objective of this project is to analyze past recipes/reviews to predict what a recipe will be rated on food.com. Our first dataset contains information about recipes, `recipes`, and the second is about the interactions with these recipes on food.com, `interactions`. We will discuss our datasets further below and how we used them to solve our problem. 
@@ -62,6 +58,7 @@ As we can see below, we have 51832 values of '0' to turn to `np.nan`.
 |        2 |    9310 |
 
 This is how the first 5 row of the merged df `df` looks like. 
+
 | name                                 |     id |   minutes |   contributor_id | submitted   | nutrition                                    |   n_steps |   n_ingredients |          user_id |   recipe_id | date                |   rating |   avg_rating |   month |
 |:-------------------------------------|-------:|----------:|-----------------:|:------------|:---------------------------------------------|----------:|----------------:|-----------------:|------------:|:--------------------|---------:|-------------:|--------:|
 | 1 brownies in the world    best ever | 333281 |        40 |           985201 | 2008-10-27  | [138.4, 10.0, 50.0, 3.0, 3.0, 19.0, 6.0]     |        10 |               9 | 386585           |      333281 | 2008-11-19 00:00:00 |        4 |            4 |      11 |
