@@ -1,5 +1,5 @@
 # What will my recipe be rated on food.com?
-analysis on recipes/reviews on food.com
+Analysis on recipes/reviews on food.com
 
 
 # Introduction
@@ -40,11 +40,13 @@ Our second dataset, `interactions`, contains 731927 rows and 5 columns:
 1. Left merge the `recipes` and `interactions` datasets.
 2. In this merged dataset, `df`, we fill all '0' ratings with `np.nan`.
    - The '0' ratings are probably missing values, since food.com uses a scale of 1-5. Therefore, the '0' should not play a role in our calculations.
-3. Next, we calculate the average rating per recipe, and store it as a series `avg_rating`.
+3. Next, we calculate the average rating per recipe and store it as a series `avg_rating`.
 4. We add the series, `avg_rating`, back to the merged df, `df`.
 5. Dropping rows that do not have a rating, as they will not be relevant to our calculations.
-6. Dropping `'description'`, `'review'`, `'tags'`, `'ingredients'`, `'nutrition'` and `'steps'` columsn are they are not relevant to our calculations.
+6. Dropping `'description'`, `'review'`, `'ingredients'`, and `'steps'` columsn are they are not relevant to our calculations.
 7. Created a new `'month'` column to use in further analysis.
+8. Extracting `'calories'` from the nutrituion column
+9. Removing rows where `'minutes'` exceeds 25,000
 
 As we can see below, we have 51832 values of '0' to turn to `np.nan`. 
 
@@ -112,12 +114,13 @@ As seen in the above graph, the majority of the recipes with fewer steps result 
  frameborder="0"
  ></iframe>
 
-This graph shows us that the time spent cooking doesn't have a strong impact on its rating. Some dishes that take a very long time (> 5000 minutes) can also result in a high rating, which may come from showing more prep in the recipe, causing the taste/presentation of the food to increase. 
+This graph shows us that the time spent cooking doesn't have a strong impact on the rating. Some dishes that take a very long time (> 5000 minutes) can also result in a high rating, which may come from showing more prep in the recipe, causing the taste/presentation of the food to increase. 
 
 ## Interesting Aggregates
 
 
-## Imputation (Optional? delete if so)
+## Imputation
+Data imputation was not applicable for our project. For rows where there was a missing (i.e., NaN) value in the rating column, we could not impute a value for the rating because the goal of our project is to build a model that predicts rating values. Thus, any imputation in this column would improperly bias our final regression model. This means we have to drop rows with NaN rating. Once we do this, the only remaining NaNs in our dataframe are in the description and review columns. We do not use either of these features in our regression model, so there is no need for imputation here either.
 
 # Framing a Prediction Problem
 Using linear regression, our model will aim to predict a recipe's rating. We are treating the rating as a number between the range of [1, 5]. This number can be in the form of a float, which makes this a **regression** problem. 
@@ -127,20 +130,20 @@ Using linear regression, our model will aim to predict a recipe's rating. We are
 To predict the rating, the factors that will be taken into consideration will be everything except the rating of the dish. Since the purpose of this objective is to learn what leads to a higher rating. (something like this)
 
 # Baseline Model
-Our initial phase will include implementing a baseline model. We will do this by using a **Linear Regression** model on the following features: 
+Since this is a regression problem. Our initial phase will include implementing a baseline model. Our response variable is `'rating'` as we want to be able to predict how certain recipes will be viewed by others on food.com. We will do this by using a **Linear Regression** model on the following features: 
 1. model0 - `'minutes'` (quantitative)
 2. model1 - `'n_steps'` (quantitative)
-3. model2 - `'minutes + n_ingredients'` (quantitative + quantitative)
+3. model2 - `'minutes' + 'n_ingredients' + 'calories'` (all quantitative)
 
 ### Comparing models:
 `model2` will represent our Baseline model, using features minutes and n_ingredients. 
 Below are the results (MSE) of the three models. 
 ```
-{'minutes': 0.5084417775074348,
- 'n_steps': 0.5084397192262325,
- 'minutes + n_ingredients'+ calories': 0.5083787265155612}
+{'minutes': 0.5012293752319682,
+ 'n_steps': 0.5012364897342074,
+ 'minutes + n_ingredients'+ calories': 0.5012586066763299}
 ```
-Therefore, our baseline model scored a MSE of approximately `0.5084`, which is acceptable. Since the range of the `'rating'` is [1-5], \(\sqrt{0.5084} \approx 0.71\). This means a true rating of 4.0 can lie in the range of [3.29, 4.71]. However, even though MSE is below 1, there is still room for improvement. 
+Therefore, our baseline model scored a MSE of approximately `0.5013`, which is acceptable. Since the range of the `'rating'` is [1-5], \(\sqrt{0.5084} \approx 0.71\). This means a true rating of 4.0 can lie in the range of [3.29, 4.71]. However, even though MSE is below 1, there is still room for improvement. 
 
 We have chosen these features, because (look at graphs)
 
@@ -148,16 +151,16 @@ We have chosen these features, because (look at graphs)
 
 ## Performance of Model
 # Final Model
-For the final model, we plan to improve the accuracy from the baseline model's prediction. The baseline model scored an MSE of 0.508. For our final model, we plan to engineer 2 features:
+For the final model, we plan to improve the accuracy of the baseline model's prediction. The baseline model scored an MSE of 0.5013. For our final model, we plan to engineer 2 features:
 1. `'tags_count'`
 2. `'cal_per_ingredient'`
 
-The `'tags_count'` is vital to the rating as the rating is a collection of reviews on food.com. This would be since recipes with more tags likely represent dishes that incorporate more styles, which may induce bias to reviewers, increasing their rating of the recipe. Having more information/tags potentially correlates with a chef caring more about their recipe, further leading to higher ratings, with the opposite also being valid. 
+The `'tags_count'` is vital to the rating as the rating is a collection of reviews on food.com. This would be since recipes with more tags likely represent dishes that incorporate more styles, which may induce bias in reviewers, increasing their rating of the recipe. Having more information/tags potentially correlates with a chef caring more about their recipe, further leading to higher ratings, with the opposite also being valid. 
 
-The `'cal_per_ingredient'` feature represents the calories per ingredient in the recipe. This could show how efficiently the recipe uses calories in its dish, trying to minimize the number of ingredients used. This also plays a role in the complexity of the dish, since more ingredients used may steer away users who prefer a simple dish whilst maintaining their calorie intake. 
+The `'cal_per_ingredient'` feature represents the calories per ingredient in the recipe. This could show how efficiently the recipe uses calories in its dish, trying to minimize the number of ingredients used. This also plays a role in the complexity of the dish, since more ingredients used may steer away users who prefer a simple dish, whilst maintaining their calorie intake. 
 
 ## Results
-The calculated MSE for our final model was `0.5021`, showing a slight increase from our baseline model. 
+The calculated MSE for our final model was `0.492`, showing a slight increase from our baseline model. 
 
 # Overall Conclusion 
 Through this analysis, we found out that 
