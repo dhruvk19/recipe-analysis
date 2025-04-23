@@ -144,3 +144,16 @@ We have chosen these features, because (look at graphs)
 
 ## Performance of Model
 # Final Model
+For the final model, we plan to improve the accuracy from the baseline model's prediction. The baseline model scored an MSE of 0.508. For our final model, we plan to engineer 2 features:
+1. `'tags_count'`
+2. `'cal_per_ingredient'`
+
+The `'tags_count'` is vital to the rating as the rating is a collection of reviews on food.com. This would be since recipes with more tags likely represent dishes that incorporate more styles, which may induce bias to reviewers, increasing their rating of the recipe. Having more information/tags potentially correlates with a chef caring more about their recipe, further leading to higher ratings, with the opposite also being valid. 
+
+The `'cal_per_ingredient'` feature represents the calories per ingredient in the recipe. This could show how efficiently the recipe uses calories in its dish, trying to minimize the number of ingredients used. This also plays a role in the complexity of the dish, since more ingredients used may steer away users who prefer a simple dish whilst maintaining their calorie intake. 
+
+## Results
+The calculated MSE for our final model was `0.5046`, showing a slight increase from our baseline model. 
+
+# Overall Conclusion 
+Through this analysis, we found out that 
