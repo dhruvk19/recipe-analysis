@@ -171,7 +171,7 @@ We have chosen these features because we found them to have a correlation to the
 - Both now and in Step 5: Final Model, make sure to evaluate your model’s ability to generalize to unseen data!
 
 # Final Model
-For the final model, we plan to improve the accuracy of the baseline model's prediction. The baseline model scored an MSE of 0.492. For our final model, we plan to engineer 2 features:
+For the final model, we plan to improve the accuracy of the baseline model's prediction. The baseline model scored an MSE of 0.5013. For our final model, we plan to engineer 2 features:
 1. `'tags_count'`
 2. `'cal_per_ingredient'`
 
