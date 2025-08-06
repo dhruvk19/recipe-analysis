@@ -1,3 +1,143 @@
+<header style="
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 30px 40px;
+  z-index: 1001;
+  background: rgba(45, 45, 45, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+">
+  <a href='../' style="
+    font-size: 24px;
+    font-weight: 300;
+    color: white;
+    text-decoration: none;
+  ">dhruv kapur</a>
+
+  <nav>
+    <ul style="
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    ">
+      <li><a href="../projects/" style="
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 300;
+        position: relative;
+        padding-bottom: 3px;
+        color: #d4915d;
+      " onmouseover="this.style.setProperty('--w', '100%')" onmouseout="this.style.setProperty('--w', '0')"
+      ><span style="
+        position: relative;
+        display: inline-block;
+      ">
+        projects
+        <span style="
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: var(--w, 0);
+          height: 2px;
+          background-color: #d4915d;
+          transition: width 0.3s ease;
+          display: block;
+        "></span>
+      </span></a></li>
+
+      <li><a href="../experience/" style="
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 300;
+        position: relative;
+        padding-bottom: 3px;
+        color: #7fb069;
+      " onmouseover="this.style.setProperty('--w', '100%')" onmouseout="this.style.setProperty('--w', '0')"
+      ><span style="
+        position: relative;
+        display: inline-block;
+      ">
+        experience
+        <span style="
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: var(--w, 0);
+          height: 2px;
+          background-color: #7fb069;
+          transition: width 0.3s ease;
+          display: block;
+        "></span>
+      </span></a></li>
+
+      <li><a href="../about/" style="
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 300;
+        position: relative;
+        padding-bottom: 3px;
+        color: #5a9fd4;
+      " onmouseover="this.style.setProperty('--w', '100%')" onmouseout="this.style.setProperty('--w', '0')"
+      ><span style="
+        position: relative;
+        display: inline-block;
+      ">
+        about
+        <span style="
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: var(--w, 0);
+          height: 2px;
+          background-color: #5a9fd4;
+          transition: width 0.3s ease;
+          display: block;
+        "></span>
+      </span></a></li>
+
+      <li><a href="https://dhruvk19.com/Dhruv_Kapur_Resume.pdf" target="_blank" style="
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 300;
+        position: relative;
+        padding-bottom: 3px;
+        color: #c75a7e;
+      " onmouseover="this.style.setProperty('--w', '100%')" onmouseout="this.style.setProperty('--w', '0')"
+      ><span style="
+        position: relative;
+        display: inline-block;
+      ">
+        resume
+        <span style="
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: var(--w, 0);
+          height: 2px;
+          background-color: #c75a7e;
+          transition: width 0.3s ease;
+          display: block;
+        "></span>
+      </span></a></li>
+    </ul>
+  </nav>
+</header>
+
+
+
+
 # What will my recipe be rated on food.com?
 Analysis on recipes/reviews on food.com
 
