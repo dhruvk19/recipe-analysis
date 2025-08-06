@@ -1,4 +1,5 @@
 <header style="
+  font-family: Georgia, serif;
   position: fixed;
   top: 0;
   right: 0;
@@ -13,7 +14,8 @@
   align-items: center;
   height: 90px;
 ">
-  <a href='../' style="
+  <a href='https://dhruvk19.com/' style="
+    font-family: Georgia, serif;
     font-size: 24px;
     font-weight: 300;
     color: white;
@@ -28,109 +30,105 @@
       margin: 0;
       padding: 0;
     ">
-      <li><a href="../projects/" style="
+      <li><a href="https://dhruvk19.com/projects/" style="
+        font-family: Georgia, serif;
         text-decoration: none;
         font-size: 18px;
         font-weight: 300;
         position: relative;
         padding-bottom: 3px;
         color: #d4915d;
-      " onmouseover="this.style.setProperty('--w', '100%')" onmouseout="this.style.setProperty('--w', '0')"
-      ><span style="
-        position: relative;
-        display: inline-block;
-      ">
-        projects
-        <span style="
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: var(--w, 0);
-          height: 2px;
-          background-color: #d4915d;
-          transition: width 0.3s ease;
-          display: block;
-        "></span>
-      </span></a></li>
+      " onmouseover="this.style.setProperty('--w', '100%')" onmouseout="this.style.setProperty('--w', '0')">
+        <span style="position: relative; display: inline-block;">
+          projects
+          <span style="
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: var(--w, 0);
+            height: 2px;
+            background-color: #d4915d;
+            transition: width 0.3s ease;
+            display: block;
+          "></span>
+        </span>
+      </a></li>
 
-      <li><a href="../experience/" style="
+      <li><a href="https://dhruvk19.com/experience/" style="
+        font-family: Georgia, serif;
         text-decoration: none;
         font-size: 18px;
         font-weight: 300;
         position: relative;
         padding-bottom: 3px;
         color: #7fb069;
-      " onmouseover="this.style.setProperty('--w', '100%')" onmouseout="this.style.setProperty('--w', '0')"
-      ><span style="
-        position: relative;
-        display: inline-block;
-      ">
-        experience
-        <span style="
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: var(--w, 0);
-          height: 2px;
-          background-color: #7fb069;
-          transition: width 0.3s ease;
-          display: block;
-        "></span>
-      </span></a></li>
+      " onmouseover="this.style.setProperty('--w', '100%')" onmouseout="this.style.setProperty('--w', '0')">
+        <span style="position: relative; display: inline-block;">
+          experience
+          <span style="
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: var(--w, 0);
+            height: 2px;
+            background-color: #7fb069;
+            transition: width 0.3s ease;
+            display: block;
+          "></span>
+        </span>
+      </a></li>
 
-      <li><a href="../about/" style="
+      <li><a href="https://dhruvk19.com/about/" style="
+        font-family: Georgia, serif;
         text-decoration: none;
         font-size: 18px;
         font-weight: 300;
         position: relative;
         padding-bottom: 3px;
         color: #5a9fd4;
-      " onmouseover="this.style.setProperty('--w', '100%')" onmouseout="this.style.setProperty('--w', '0')"
-      ><span style="
-        position: relative;
-        display: inline-block;
-      ">
-        about
-        <span style="
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: var(--w, 0);
-          height: 2px;
-          background-color: #5a9fd4;
-          transition: width 0.3s ease;
-          display: block;
-        "></span>
-      </span></a></li>
+      " onmouseover="this.style.setProperty('--w', '100%')" onmouseout="this.style.setProperty('--w', '0')">
+        <span style="position: relative; display: inline-block;">
+          about
+          <span style="
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: var(--w, 0);
+            height: 2px;
+            background-color: #5a9fd4;
+            transition: width 0.3s ease;
+            display: block;
+          "></span>
+        </span>
+      </a></li>
 
       <li><a href="https://dhruvk19.com/Dhruv_Kapur_Resume.pdf" target="_blank" style="
+        font-family: Georgia, serif;
         text-decoration: none;
         font-size: 18px;
         font-weight: 300;
         position: relative;
         padding-bottom: 3px;
         color: #c75a7e;
-      " onmouseover="this.style.setProperty('--w', '100%')" onmouseout="this.style.setProperty('--w', '0')"
-      ><span style="
-        position: relative;
-        display: inline-block;
-      ">
-        resume
-        <span style="
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: var(--w, 0);
-          height: 2px;
-          background-color: #c75a7e;
-          transition: width 0.3s ease;
-          display: block;
-        "></span>
-      </span></a></li>
+      " onmouseover="this.style.setProperty('--w', '100%')" onmouseout="this.style.setProperty('--w', '0')">
+        <span style="position: relative; display: inline-block;">
+          resume
+          <span style="
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: var(--w, 0);
+            height: 2px;
+            background-color: #c75a7e;
+            transition: width 0.3s ease;
+            display: block;
+          "></span>
+        </span>
+      </a></li>
     </ul>
   </nav>
 </header>
